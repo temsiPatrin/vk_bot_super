@@ -13,7 +13,8 @@ class Commander:
         for i in self.hello:
             if text == i:
                 self.last_msg = ""
-                return "Привет, я БОТ_ИМЯ!\nЯ умею присылать статью из Википедии"
+                return "Привет, я БОТ_ИМЯ!\nЯ умею присылать статью из Википедии(напиши: вики или wiki)"
+
         for i in self.whatsup:
             if text == i:
                 self.last_msg = ""
