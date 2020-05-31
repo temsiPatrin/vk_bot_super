@@ -10,6 +10,7 @@ class Commander:
             w = Wiki()
             self.last_msg = ""
             return w.get_wiki(text)
+
         for i in self.hello:
             if text == i:
                 self.last_msg = ""
@@ -19,8 +20,10 @@ class Commander:
             if text == i:
                 self.last_msg = ""
                 return "У меня всгда все круто, я же рообот\nА у тебя как дела?"
+
         for i in self.wiki:
             if text == i:
                 self.last_msg = "вики"
                 return "Что ты хочешь узнать?"
+
         return "Я тебя не понял"

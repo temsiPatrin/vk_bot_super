@@ -20,15 +20,16 @@ class Server:
                                   message=message,
                                   random_id = get_random_id())
 
-    def test(self,id):
-        self.send_msg(id,"Testing")
+    def test(self,user_id_for_server):
+        s1 = self.vk_api.users.get(user_id=user_id_for_server)
+        self.send_msg(153460665, s1)
 
     def start(self):
         for event in self.long_poll.listen():
             if event.type == VkBotEventType.MESSAGE_NEW and event.from_user:
                 if event.object.from_id not in self.users:
                     self.users[event.object.from_id] = Commander()
-
+                self.test(event.object.peer_id)
                 self.send_msg(event.object.peer_id, self.users[event.object.from_id].ans(event.object.text))
 
     def get_user_name(self, user_id):

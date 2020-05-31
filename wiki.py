@@ -10,5 +10,3 @@ class Wiki:
         except Exception as e:
             print(e.__str__())
             return "Попробуй другой запрос"
-
-
